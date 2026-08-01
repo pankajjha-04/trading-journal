@@ -1,0 +1,15 @@
+{
+  "name": "Ledgerline — Trading Journal",
+  "short_name": "Ledgerline",
+  "description": "Log every trade and see which setups actually pay.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#070910",
+  "theme_color": "#070910",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
