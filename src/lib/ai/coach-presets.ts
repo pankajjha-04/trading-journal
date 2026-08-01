@@ -1,8 +1,3 @@
-/**
- * Presets exist so nobody has to learn to prompt. The wording of each one is
- * a product decision: a trader asked to "type a question" mostly asks the
- * model to predict price, which is the one thing it must not do.
- */
 export const PRESETS = [
   {
     id: 'chart',

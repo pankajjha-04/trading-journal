@@ -4,8 +4,7 @@ import { z } from 'zod';
 import { breakdownBy, computePortfolioStats, computeRiskRatios } from '@/lib/metrics';
 import type { Trade } from '@/lib/types/trade';
 
-export const PRESETS = {} as const;
-export type PresetId = keyof typeof PRESETS;
+export { PRESETS, type PresetId } from './coach-presets';
 
 export const COACH_SYSTEM = `You are reviewing a trader's own recorded history and answering questions about it.
 
