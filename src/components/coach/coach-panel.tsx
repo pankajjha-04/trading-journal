@@ -14,13 +14,29 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
-import { PRESETS, type PresetId } from '@/lib/ai/coach';
 import { extractSpreadsheet, isSpreadsheet } from '@/lib/import/spreadsheet';
 import { askCoach, type CoachState } from '@/app/coach/actions';
 import { Button } from '@/components/ui/button';
 import { FormAlert } from '@/components/auth/form-alert';
 import { cn } from '@/lib/utils/cn';
 import type { AccountSummary } from '@/lib/data/trades';
+
+type PresetId = 'chart' | 'statement' | 'account' | 'habit' | 'drop' | 'risk';
+type PresetNeeds = 'none' | 'image' | 'document';
+
+const PRESETS = [
+  { id: 'chart', label: 'Chart review', blurb: 'Review a chart or screenshot for patterns and risk.', needs: 'image' },
+  { id: 'statement', label: 'Statement audit', blurb: 'Check a PDF, CSV or spreadsheet for mistakes or gaps.', needs: 'document' },
+  { id: 'account', label: 'Account check', blurb: 'Look over your account history for setup or behavioural issues.', needs: 'none' },
+  { id: 'habit', label: 'Habit review', blurb: 'Talk through habits that repeat under pressure.', needs: 'none' },
+  { id: 'drop', label: 'Drop analysis', blurb: 'Review a drop or drawdown and isolate what changed.', needs: 'document' },
+  { id: 'risk', label: 'Risk check', blurb: 'Check whether your trade plan and risk are aligned.', needs: 'none' },
+] as const satisfies ReadonlyArray<{
+  id: PresetId;
+  label: string;
+  blurb: string;
+  needs: PresetNeeds;
+}>;
 
 const ICONS: Record<PresetId, typeof Sparkles> = {
   chart: ImageIcon,
